@@ -3,14 +3,6 @@
  * Generator takes raw HTML content exported from a Markdown editor, and generates static HTML web pages with universal
  * base template, header, and footer. Directory structure can be organized by specifying manifest directives in the
  * JSON configuration.
- *
- * This is a work-in-progress built with minimalism in mind. It is shared here in the hopes that it may be useful to
- * others (and mostly my future self). The goal is to keep the generator a lightweight, single-script application, free
- * of external dependencies and superficial infrastructure.
- *
- * TODO: We can skip the export to HTML from editor by implementing our own basic Markdown parser.
- * TODO: Implement custom styles (currently using default CSS from MarkdownPad 2)
- * TODO: Include sample directory structure in github and include README.md to facilitate rapid setup.
  */
 // The root is the directory parent of the directory that contains this generator.
 $projectRootPath = dirname(__DIR__);
@@ -50,6 +42,7 @@ switch (count($args)) {
 function help(): void
 {
     echo "\n", 'Usage:', "\n\n";
+    echo 'Display Help: `php generator.php help`', "\n";
     echo 'Initialize project config: `php generator.php init`', "\n";
     echo 'Generate from source file: `php generator.php source-file destination-file`', "\n";
     echo 'Generate all from config.manifest list: `php generator.php generate`', "\n\n";
